@@ -10,14 +10,14 @@
 #ifndef SIMPLE_CLOCK_H
 #define SIMPLE_CLOCK_H
 
+#include <ctime>
 #include <string>
+#include <iostream>
 
 class simple_clock {
 
-  static clock_t begin_time, end_time;
+  static clock_t begin_time;
 
-
-  public:
   static void start_clock();
   static double end_clock();
   static double end_clock(std::string msg);
@@ -31,14 +31,12 @@ void simple_clock::start_clock() {
 }
 
 double simple_clock::end_clock() {
-  end_time = clock();
-  return (double(end_time - begin_time) / CLOCKS_PER_SEC);
+  return (double(clock() - begin_time) / CLOCKS_PER_SEC);
 }
 
 double simple_clock::end_clock(std::string msg) {
-  end_time = clock();
-  double elapsed_time = double(end_time - begin_time) / CLOCKS_PER_SEC;
-  std::cout << msg << "[" <<  elapsed_time  << " seconds]\n";
+  double elapsed_time = double(clock() - begin_time) / CLOCKS_PER_SEC;
+  std::cout << msg << " [" <<  elapsed_time  << " seconds]\n";
   return elapsed_time;
 }
 
