@@ -1,0 +1,19 @@
+## strs
+
+- A collection of string functions to parase and manipulate strings
+
+```
+
+Split split_getline took [5.71179 seconds]
+Split split_getline took [5.86078 seconds]
+Split split_getline took [5.86326 seconds]
+
+Split 2 took [5.73433 seconds]
+Split 2 took [5.55209 seconds]
+Split 2 took [5.73801 seconds]
+
+Split 3 took [6.07271 seconds]
+Split 3 took [5.88392 seconds]
+Split 3 took [6.09894 seconds]
+
+```

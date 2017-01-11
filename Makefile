@@ -4,6 +4,7 @@ CXXFLAGS = -std=c++1z -pedantic -Wall -pthread -O3
 
 INDEX_LIB := indexer.o indexer_main.o
 
+STRING_LIB := strs/*.h
 TIMING_HEADERS := timing/*.h
 
 ########################################
@@ -19,12 +20,12 @@ indexer: $(INDEX_LIB)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
 ########################################
-splitter: split.cc helper.h $(TIMING_HEADERS)
-	$(CXX) $(CXXFLAGS) split.cc -o splitter
+splitter: strs/split.cc $(STRING_LIB) $(TIMING_HEADERS)
+	$(CXX) $(CXXFLAGS) strs/split.cc -o bin/splitter
 
 ########################################
 clean:
-	touch indexer splitter server
-	rm indexer splitter server
+	rm bin/*
 	rm *.o
+
 
