@@ -1,6 +1,7 @@
 
 #include "../helper.h"
-#include "../timing/simple_clock.h"
+#include "../timing/static_clock.h"
+#include "../timing/simple_clock_manager.h"
 #include "../strs/split.h"
 #include <string>
 #include <vector>
@@ -15,8 +16,10 @@ int main() {
 
 
   int test_num = 10000;
+  simple_clock_manager mgr;
 
-  simple_clock::start_clock();
+  mgr.start_clock("split1");
+  static_clock::start_clock();
   for (int i = 0; i < test_num; i++) {
     split_getline(str1, ' ');
     split_getline(str2, ' ');
@@ -25,9 +28,11 @@ int main() {
     data  = split_getline(str4, ' ');
     //std::cout << "Size: " << data.size() << std::endl;
   }
-  simple_clock::end_clock("Split split_getline took");
+  static_clock::end_clock("Split split_getline took");
+  cout << mgr.end_clock("split1");
 
-  simple_clock::start_clock();
+  static_clock::start_clock();
+  mgr.start_clock("split2");
   for (int i = 0; i < test_num; i++) {
     split2(str1, ' ');
     split2(str2, ' ');
@@ -36,9 +41,11 @@ int main() {
     data  = split_getline(str4, ' ');
     //std::cout << "Size: " << data.size() << std::endl;
   }
-  simple_clock::end_clock("Split 2 took");
+  static_clock::end_clock("Split 2 took");
+  cout << mgr.end_clock("split2");
   
-  simple_clock::start_clock();
+  static_clock::start_clock();
+  mgr.start_clock("split3");
   for (int i = 0; i < test_num; i++) {
     split3(str1, " ");
     split3(str2, " ");
@@ -47,6 +54,7 @@ int main() {
     data  = split_getline(str4, ' ');
     //std::cout << "Size: " << data.size() << std::endl;
   }
-  simple_clock::end_clock("Split 3 took");
+  static_clock::end_clock("Split 3 took");
+  cout << mgr.end_clock("split3");
 
 }
