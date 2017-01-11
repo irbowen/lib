@@ -4,7 +4,6 @@
    Isaac Bowen
 
    A simple header-only timing library
-
  */
 
 #ifndef SIMPLE_CLOCK_H
@@ -15,7 +14,7 @@
 #include <iostream>
 
 class simple_clock {
-
+  public:
   static clock_t begin_time;
 
   static void start_clock();
@@ -24,7 +23,6 @@ class simple_clock {
 };
 
 clock_t simple_clock::begin_time;
-clock_t simple_clock::end_time;
 
 void simple_clock::start_clock() {
   simple_clock::begin_time = clock();
@@ -35,7 +33,7 @@ double simple_clock::end_clock() {
 }
 
 double simple_clock::end_clock(std::string msg) {
-  double elapsed_time = double(clock() - begin_time) / CLOCKS_PER_SEC;
+  double elapsed_time = simple_clock::end_clock();
   std::cout << msg << " [" <<  elapsed_time  << " seconds]\n";
   return elapsed_time;
 }

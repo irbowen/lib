@@ -1,16 +1,14 @@
 ## Isaac Bowen, eecs485win16p6
 
-CXXFLAGS = -std=c++1z -g -pedantic -Wall -pthread
+CXXFLAGS = -std=c++1z -pedantic -Wall -pthread -O3
 
 INDEX_LIB := indexer.o indexer_main.o
-
-SERVER_LIB := server.o server_main.o
 
 TIMING_HEADERS := timing/*.h
 
 ########################################
 default: all 
-all: indexer server
+all: splitter
 
 DEPS := $(wildcard *.h)
 
@@ -18,9 +16,6 @@ DEPS := $(wildcard *.h)
 	$(CXX) $(CXXFLAGS) -o $@ -c $<
 
 indexer: $(INDEX_LIB)
-	$(CXX) $(CXXFLAGS) -o $@ $^
-
-server: $(SERVER_LIB)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
 ########################################

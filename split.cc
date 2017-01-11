@@ -1,6 +1,6 @@
 
 #include "helper.h"
-#include "simple_clock.h"
+#include "timing/simple_clock.h"
 #include <string>
 #include <vector>
 #include <iostream>
@@ -17,21 +17,21 @@ int main() {
 
   simple_clock::start_clock();
   for (int i = 0; i < test_num; i++) {
-    split1(str1, ' ');
-    split1(str2, ' ');
-    split1(str3, ' ');
+    split(str1, ' ');
+    split(str2, ' ');
+    split(str3, ' ');
   }
   simple_clock::end_clock("Split 1 took");
 
   simple_clock::start_clock();
   for (int i = 0; i < test_num; i++) {
-    split1(str1, ' ');
+    split(str1, ' ');
   }
   simple_clock::end_clock("Split 2 took");
   
   simple_clock::start_clock();
   for (int i = 0; i < test_num; i++) {
-    split1(str2, ' ');
+    split(str2, ' ');
   }
   simple_clock::end_clock("Split 3 took");
 
