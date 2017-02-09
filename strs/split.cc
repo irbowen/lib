@@ -58,6 +58,7 @@ int main() {
   static_clock::end_clock("Split 3 took");
   cout << mgr.end_clock("split3");
 
-  cout << "The edit diatance of kitten and kitchen is" << edit_distance("kitten", "kitchen") << endl;
+  cout << "The edit distance of kitten and kitchen is" << edit_distance("kitten", "kitchen") << endl;
+  cout << "The edit distance of familiar and similarity is" << edit_distance("familiar", "similarity") << endl;
 
 }
